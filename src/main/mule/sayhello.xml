@@ -5,7 +5,7 @@
     </http:listener-config>
     <apikit-soap:config httpStatusVarName="httpStatus" name="soapkit-config" port="Hello_Port" service="Hello_Service" wsdlLocation="helloService.wsdl"/>
     <flow name="api-main">
-        <http:listener config-ref="api-httpListenerConfig" path="/SayHello" outputMimeType="application/xml">
+        <http:listener config-ref="api-httpListenerConfig" path="/SayHello" outputMimeType="application/xml" doc:name="Listener end point">
             <http:response statusCode="#[attributes.additionalTransportData.statusCode default 200]">
                 <http:headers><![CDATA[#[attributes.protocolHeaders default {}]]]></http:headers>
             </http:response>
